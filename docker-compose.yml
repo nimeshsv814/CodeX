@@ -130,7 +130,4 @@ networks:
 # ------------------ VOLUMES ------------------
 
 volumes:
-  auth_mongo_data:
-  user_mongo_data:
-  training_mongo_data:
-  attendance_mongo_data:
+  mongo_data:
