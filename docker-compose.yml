@@ -56,7 +56,7 @@ services:
     env_file:
       - ./auth-service/.env
     depends_on:
-      - auth-mongo
+      - mongo
     ports:
       - "4001:4001"
     networks:
@@ -69,7 +69,7 @@ services:
     env_file:
       - ./user-service/.env
     depends_on:
-      - user-mongo
+      - mongo
       - auth-service
     ports:
       - "4002:4002"
@@ -83,7 +83,7 @@ services:
     env_file:
       - ./training-service/.env
     depends_on:
-      - training-mongo
+      - mongo
       - user-service
     ports:
       - "4003:4003"
@@ -97,7 +97,7 @@ services:
     env_file:
       - ./attendance-service/.env
     depends_on:
-      - attendance-mongo
+      - mongo
       - user-service
       - training-service
     ports:
