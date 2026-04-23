@@ -112,6 +112,8 @@ services:
       - user-service
       - training-service
       - attendance-service
+    ports:
+      - "3000:80"
     networks:
       - training-network
 
