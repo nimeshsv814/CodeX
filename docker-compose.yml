@@ -3,41 +3,49 @@ version: "3.9"
 services:
   # ------------------ MONGODB SERVICES ------------------
 
-  auth-mongo:
-    image: mongo:7
-    container_name: auth-mongo
-    restart: unless-stopped
-    volumes:
-      - auth_mongo_data:/data/db
-    networks:
-      - training-network
-
-  user-mongo:
-    image: mongo:7
-    container_name: user-mongo
-    restart: unless-stopped
-    volumes:
-      - user_mongo_data:/data/db
-    networks:
-      - training-network
-
-  training-mongo:
+  mongo:
     image: mongo:7
     container_name: training-mongo
     restart: unless-stopped
+    ports:
+      - "27017:27017"
     volumes:
-      - training_mongo_data:/data/db
-    networks:
-      - training-network
+      - mongo_data:/data/db
+  # auth-mongo:
+  #   image: mongo:7
+  #   container_name: auth-mongo
+  #   restart: unless-stopped
+  #   volumes:
+  #     - auth_mongo_data:/data/db
+  #   networks:
+  #     - training-network
 
-  attendance-mongo:
-    image: mongo:7
-    container_name: attendance-mongo
-    restart: unless-stopped
-    volumes:
-      - attendance_mongo_data:/data/db
-    networks:
-      - training-network
+  # user-mongo:
+  #   image: mongo:7
+  #   container_name: user-mongo
+  #   restart: unless-stopped
+  #   volumes:
+  #     - user_mongo_data:/data/db
+  #   networks:
+  #     - training-network
+
+  # training-mongo:
+  #   image: mongo:7
+  #   container_name: training-mongo
+  #   restart: unless-stopped
+  #   volumes:
+  #     - training_mongo_data:/data/db
+  #   networks:
+  #     - training-network
+
+  # attendance-mongo:
+  #   image: mongo:7
+  #   container_name: attendance-mongo
+  #   restart: unless-stopped
+  #   volumes:
+  #     - attendance_mongo_data:/data/db
+  #   networks:
+  #     - training-network
 
   # ------------------ MICROSERVICES ------------------
 
